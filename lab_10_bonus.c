@@ -131,9 +131,6 @@ int main(void)
 
     // Read the number of words in the dictionary
     int numWords = readDictionary("dictionary.txt", inWords);
-
-    // Print the words from the dictionary
-    printf("Number of words read from the dictionary: %d\n", numWords);
     for (int i = 0; i < numWords; ++i)
     {
         printf("%s\n", inWords[i]);
@@ -146,7 +143,7 @@ int main(void)
         insert(pTrie, inWords[i]);
     }
 
-    // Check occurrences of specific words
+    // parse lineby line, and insert each word to the trie data structure
     char *pWords[] = {"notaword", "ucf", "no", "note", "corg"};
     for (int i = 0; i < 5; i++)
     {
@@ -155,14 +152,8 @@ int main(void)
 
     // Deallocate the trie and its nodes
     pTrie = deallocateTrie(pTrie);
-    if (pTrie == NULL)
-        printf("The trie has been deallocated.\n");
-
-    // Deallocate individual words from the array
-    for (int i = 0; i < numWords; i++)
-    {
-        free(inWords[i]);
-    }
+    if (pTrie != NULL)
+        printf("There is an error in this program.\n");
 
     return 0;
 }
